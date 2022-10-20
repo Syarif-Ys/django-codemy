@@ -2,9 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Hello World Title</title>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <center>
+
+    <h1>Hello World {{ first_name }} Events for {{ month }} {{ year }} !!</h1>
+
+        <br/> As of {{ time }} <br/><br/>
+
+        {{ cal|safe }}
+
+        <br/><br/><br/>
+        Copyright (c) {{ current_year }}
+    </center>
 </body>
 </html>
