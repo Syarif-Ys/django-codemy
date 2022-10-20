@@ -4,7 +4,7 @@ from django.shortcuts import render
 from calendar import HTMLCalendar
 from datetime import datetime
 # Create your views here.
-def home(request, year, month):
+def home(request, year=datetime.now().year, month=datetime.now().strftime('%B')):
     name = "John"
     month = month.title()
     # Convert month from name to number
@@ -22,7 +22,7 @@ def home(request, year, month):
     # Get current time
     time = now.strftime('%I:%M:%S %p')
 
-    return render(request, 'home.html', {
+    return render(request, 'events/home.html', {
         "first_name": name,
         "year": year,
         "month": month,
