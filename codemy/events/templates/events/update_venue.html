@@ -3,6 +3,11 @@
 {% block content %}
 
       <h1>Update Venue...</h1>
-        {{ venue }}
-
+      <br/>
+<form action="" method=POST>
+      {% csrf_token %}
+      {{ form.as_p }}
+      <br/>
+      <input type="submit" value="Update" class="btn btn-secondary">
+</form>
 {% endblock %}
