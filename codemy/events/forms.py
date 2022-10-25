@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import ModelForm
-from .models import Venue
+from .models import Venue, Event
 
 # Create a venue form
 class VenueForm(ModelForm):
@@ -22,4 +22,25 @@ class VenueForm(ModelForm):
             'phone': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Phone'}),
             'web': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Web Address'}),
             'email_address': forms.EmailInput(attrs={'class':'form-control', 'placeholder':'Email'}),
+        }
+
+class EventForm(ModelForm):
+    class Meta:
+        model = Event
+        fields = ('name', 'event_date', 'venue', 'manager', 'description', 'attendees')
+        labels = {
+            'name': '',
+            'event_date': '',
+            'venue': '',
+            'manager': '',
+            'description': '',
+            'attendees': '',
+        }
+        widgets = {
+            'name': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Name'}),
+            'event_date': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Event Date'}),
+            'venue': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Venue'}),
+            'manager': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Manager'}),
+            'description': forms.TextInput(attrs={'class':'form-control', 'placeholder':'Description'}),
+            'attendees': forms.EmailInput(attrs={'class':'form-control', 'placeholder':'attendees'}),
         }
